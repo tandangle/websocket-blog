@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Mailchimp Front-end assignment
 
 ## Available Scripts
 
