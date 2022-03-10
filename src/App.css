@@ -2,6 +2,18 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #E3DFFF;
+  min-height: 100vh;
+}
+
+.container { 
+  background-color: #D3C0CD;
+  margin: 100px 0px;
+  padding: 50px;
+  min-height: 700px;
+  border: 1px solid black;
+  box-shadow: 3px 2px 2px #3D3A4B;
+  border-radius: 10px;
 }
 
 .comment-form {
@@ -43,15 +55,28 @@
   margin-bottom: 30px;
 }
 
+.form-error {
+  color: red;
+}
+
 .comment {
-  border: 1px solid black;
+  border: 1px solid #937666;
+  box-shadow: 5px 3px 3px #3D3A4B;
+  border-radius: 5px;
   width: 400px;
   margin-bottom: 15px;
   padding: 10px;
+  background-color: #B19994;
 }
 
 .comment-message { 
   margin-top: 0;
   margin-bottom: 10px;
   font-weight: 500;
+}
+
+.time-stamp {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid #3D3A4B;
 }

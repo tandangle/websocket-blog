@@ -1,10 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const http = require('http');
+const ws = require('ws');
 
 const DataAccessObject = require('./dataAccessObject');
 const Comment = require('./comment');
 
 const app = express();
+const server = http.createServer(app);
+const wsServer = new ws.Server({ server, path: '/websocket' });
 const port = 3001;
 
 app.use(bodyParser.json());
@@ -44,6 +48,15 @@ app.delete('/deleteComments', function(request, response) {
   });
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+wsServer.on('connection', ws => {
+  ws.on('message', message => {
+      const parsedMessage = JSON.parse(message);
+      wsServer.clients.forEach(client => {
+        client.send(JSON.stringify(parsedMessage))
+      })
+  });
+});
+
+server.listen(port, () => console.log(`Listening on port ${port}`));
 
 app.use(express.static('public'));
