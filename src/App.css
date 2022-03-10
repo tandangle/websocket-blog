@@ -1,38 +1,57 @@
 .App {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.comment-form {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.name-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.name-input {
+  margin-top: 10px;
+  width: 250px;
+}
+
+.comment-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment-input {
+  margin-top: 10px;
+  width: 250px;
+  min-height: 200px;
+}
+
+.comment-input::placeholder {
+  text-align: start;
+}
+
+.comment-form-button { 
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.comment {
+  border: 1px solid black;
+  width: 400px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.comment-message { 
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 500;
 }

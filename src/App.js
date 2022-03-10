@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import Form from './components/form';
+import Comment from './components/comment';
+import { Api } from './api';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [comments, setComments] = React.useState([]);
+  
+  React.useEffect(() => {
+    const fetchComments = async () => {
+      const data = await Api.get('/getComments');
+
+      console.log(data);
+      setComments(data);
+      return data;
+    }
+    
+    fetchComments();
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form/>
+      {comments.map(comment => {
+        return <Comment comment={comment} key={comment.id}/>
+      })}
     </div>
   );
 }
