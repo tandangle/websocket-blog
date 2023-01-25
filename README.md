@@ -1,4 +1,4 @@
-# Mailchimp Front-end assignment
+# Websocket blog
 
 ## Available Scripts
 
